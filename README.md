@@ -77,7 +77,7 @@ When reviewing item,  choose a performanceRating from [0.0, 1.0], with 1.0 being
 - difficultyWeight = 3 - 1.7 * difficulty
 
 - interval =
-  - Max(((1-difficulty) * oldinterval), 1) + (difficultyWeight - 1) * percentOverdue (for correct answer)
+  - Max(((1-difficulty)^3 * oldinterval), 1) + (difficultyWeight - 1) * percentOverdue (for correct answer)
   - 1 / difficultyWeight / difficultyWeight (for incorrect answer)
 
 
