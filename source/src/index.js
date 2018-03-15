@@ -29,7 +29,7 @@ const calculate = (word, performanceRating, today) => {
   if (performanceRating === WORST) {
     interval = Math.round(1 / difficultyWeight / difficultyWeight) || 1;
   } else {
-    interval = Math.max(Math.round((1 - difficulty) * word.interval), 1) + Math.round((difficultyWeight - 1) * percentOverDue);
+    interval = Math.max(Math.round((1 - difficulty)^3 * word.interval), 1) + Math.round((difficultyWeight - 1) * percentOverDue);
   }
 
   return {
