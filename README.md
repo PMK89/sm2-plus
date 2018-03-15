@@ -1,13 +1,10 @@
-### sm2-plus
+### sm2-plus extended interval
 ----
 
 This is a JS implementation of a refined version of the SM2 space repetition learning algorithm invented by [**BlueRaja**][br] overcoming some of the inherent issues of the original version.
 Details about what these issuses are and how [**BlueRaja**][br] solved them can be found in this [post][original].
 
-#### Installation
-```
-$ npm install sm2-plus --save
-```
+The discribed algorithm has shown a maximal interval of 5 days even with a difficulty of 0 while other memory tools extend the interval to weeks or month. This can be prevented by adding to a dificulty weighted old interval instead of a constant.
 
 #### Usage
 ```javascript
@@ -80,7 +77,7 @@ When reviewing item,  choose a performanceRating from [0.0, 1.0], with 1.0 being
 - difficultyWeight = 3 - 1.7 * difficulty
 
 - interval =
-  - 1 + (difficultyWeight - 1) * percentOverdue (for correct answer)
+  - Max(((1-difficulty) * oldinterval), 1) + (difficultyWeight - 1) * percentOverdue (for correct answer)
   - 1 / difficultyWeight / difficultyWeight (for incorrect answer)
 
 
